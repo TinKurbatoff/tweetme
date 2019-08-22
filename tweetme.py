@@ -26,3 +26,10 @@ cmd_line="echo -e \'\\n\\nt "+tweets_to_send[tweets_to_send[0]]+" "+strftime("%Y
 print (cmd_line)
 returned_value = os.system(cmd_line)
 print('returned value:', returned_value)
+print(tweets_to_send[0])
+if tweets_to_send[0] == len(tweets_to_send)-1:
+	tweets_to_send[0] = 0
+tweets_to_send[0]=tweets_to_send[0]+1
+with open("./tweets.json", "w") as f:
+    json.dump(tweets_to_send,f)
+    f.closed
